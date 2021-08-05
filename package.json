@@ -5,7 +5,7 @@
       "test": "cypress run"
   },
   "cypress-cucumber-preprocessor": {
-      "step_definitions": "cypress/support/Steps"
+      "step_definitions": "cypress/support/Step"
   },
 
   "devDependencies": {
