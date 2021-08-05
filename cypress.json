@@ -8,6 +8,8 @@
     "videoCompression": 32,
     "videoUploadOnPasses": true,
 
+    "reporter": "mochawesome",
+    
     "reporterOptions": {
         "overwrite": false
     }
