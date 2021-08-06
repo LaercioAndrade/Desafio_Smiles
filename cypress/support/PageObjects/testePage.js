@@ -32,6 +32,7 @@
 
     ClicarBotãoConfirmar(){
       cy.get(Elements.btnConfirmar()).click();
+      cy.screenshot();
     }
 
     ClicarBotãoBuscarVoo(){
@@ -57,6 +58,7 @@
 
     ClicarCheckBoxAceitarTermos(){
       cy.get(Elements.checkBoxAceitoTermos()).click();
+      cy.screenshot();
     }
 
     ClicarBotãoConfirmarTeladeReservaDoPedido(){

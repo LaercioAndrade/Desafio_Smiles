@@ -4,7 +4,7 @@
     "viewportWidth": 1500,
     "defaultCommandTimeout": 10000,
 
-    "video": false,
+    "video": true,
     "videoCompression": 32,
     "videoUploadOnPasses": true,
 
