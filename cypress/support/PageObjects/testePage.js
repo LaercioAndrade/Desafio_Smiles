@@ -49,11 +49,11 @@
     }
 
     ValorBilhete(){
-      cy.get(Elements.valorBilhete()).should('contain', "31.400")
+      cy.get(Elements.valorBilhete()).should('contain', "27.400")
     }
 
     ValorPedido(){
-      cy.get(Elements.valorPedido()).should('contain', "36.400")
+      cy.get(Elements.valorPedido()).should('contain', "32.400")
     }
 
     ClicarCheckBoxAceitarTermos(){
@@ -70,7 +70,7 @@
       cy.wait(1000);
       cy.screenshot();
     }
-
+    
 
   }
   export default testePage;
