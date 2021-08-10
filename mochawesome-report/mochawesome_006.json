@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-08-09T19:46:42.091Z",
+    "end": "2021-08-09T19:47:39.749Z",
+    "duration": 57658,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0a6b03e1-4519-4db5-9aa2-414b6e045a4a",
+      "title": "",
+      "fullFile": "cypress/integration/teste.feature",
+      "file": "cypress/integration/teste.feature",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b201caa0-9f8f-49d5-9ed5-6672a5579f0c",
+          "title": "Automatizar Site da Smiles",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Realizar um pedido de voo com Sucesso",
+              "fullTitle": "Automatizar Site da Smiles Realizar um pedido de voo com Sucesso",
+              "timedOut": null,
+              "duration": 57395,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const state = window.testState;\nreturn cy\n  .then(() => state.onStartScenario(scenario, indexedSteps))\n  .then(() =>\n    resolveAndRunBeforeHooks.call(this, scenario.tags, state.feature.name)\n  )\n  .then(() =>\n    indexedSteps.forEach((step) =>\n      stepTest.call(this, state, step, rowData)\n    )\n  )\n  .then(() => state.onFinishScenario(scenario));",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<th>' to contain '27.400'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<th>' to contain '27.400'\n    at testePage.ValorBilhete (https://www.smiles.com.br/__cypress/tests?p=cypress/integration/teste.feature:184:39)\n    at Context.eval (https://www.smiles.com.br/__cypress/tests?p=cypress/integration/teste.feature:240:11)\n    at Context.resolveAndRunStepDefinition (https://www.smiles.com.br/__cypress/tests?p=cypress/integration/teste.feature:10707:29)\n    at Context.eval (https://www.smiles.com.br/__cypress/tests?p=cypress/integration/teste.feature:10028:35)",
+                "diff": null
+              },
+              "uuid": "809c6ce0-5edc-45a4-b75d-c65195ba1f67",
+              "parentUUID": "b201caa0-9f8f-49d5-9ed5-6672a5579f0c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "809c6ce0-5edc-45a4-b75d-c65195ba1f67"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 57395,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false
+      },
+      "version": "5.2.0"
+    }
+  }
+}

@@ -3,6 +3,11 @@
   import testeElements from "../Elements/testeElements";
   const Elements = new testeElements;
   const NavegadorUrl = Cypress.config("baseUrl")
+  
+  const valorBilheteIda = 0;
+  const valorBlheteVolta = 0;
+  const valorTaxaEmbarque = 0;
+  const valorTotalDoBilhete = 0;
 
   class testePage{
 
@@ -32,7 +37,7 @@
 
     ClicarBotãoConfirmar(){
       cy.get(Elements.btnConfirmar()).click();
-      cy.screenshot();
+      //cy.screenshot();
     }
 
     ClicarBotãoBuscarVoo(){
@@ -45,20 +50,52 @@
 
     SelecionarMilhasNaPassagemVolta(){
       cy.get(Elements.selecionarMilhasVolta()).click();
-      cy.scrollTo(0, 1780)
+      //cy.scrollTo(0, 1780)
+    }
+    ValidarValorBilheteIda(){
+      cy.get(Elements.valorBilheteIda()).invoke('text').then((valorBilheteIda ) => {
+        cy.log(valorBilheteIda )
+        .should('contain', valorBilheteIda)
+      })
     }
 
-    ValorBilhete(){
-      cy.get(Elements.valorBilhete()).should('contain', "27.400")
+    ValidarValorBilheteVolta(){
+      cy.get(Elements.valorBilheteVolta()).invoke('text').then((valorBlheteVolta) => {
+        cy.log(valorBlheteVolta)
+        .should('contain', valorBlheteVolta)
+      })
     }
 
-    ValorPedido(){
-      cy.get(Elements.valorPedido()).should('contain', "32.400")
+    ValidarValorTotalBilhete(){
+      const valorTotalDoBilhete = valorBilheteIda + valorBlheteVolta;
+      cy.get(Elements.valorBilheteTotal()).invoke('text').then((valorTotaldoBilhete) => {
+        cy.log(valorTotalDoBilhete)
+        .should('contain', valorTotalDoBilhete)
+      })
+    }
+  
+    ValidarMilhasSelecionadoNaTaxa(){
+      cy.get(Elements.selecionarTaxa()).should('contain', '5.000 milhas')
+    }
+
+    ValidarTaxaEmbarque(){
+      cy.get(Elements.taxaDeEmbarque()).invoke('text').then((valorTaxaEmbarque) => {
+        cy.log(valorTaxaEmbarque)
+        .should('contain', valorTaxaEmbarque)
+      })
+    }
+
+    ValidarValorTotalDasMilhasDaReserva(){
+      const valorTotalDasMilhasDaReserva = valorTotalDoBilhete + valorTaxaEmbarque;
+      cy.get(Elements.valorTotalDeMilhasDaReserva()).invoke('text').then((valorTotalDasMilhasDaReserva) => {
+        cy.log(valorTotalDasMilhasDaReserva)
+        .should('contain', valorTotalDasMilhasDaReserva)
+      })
     }
 
     ClicarCheckBoxAceitarTermos(){
       cy.get(Elements.checkBoxAceitoTermos()).click();
-      cy.screenshot();
+      //cy.screenshot();
     }
 
     ClicarBotãoConfirmarTeladeReservaDoPedido(){
@@ -71,6 +108,7 @@
       cy.screenshot();
     }
     
+   
 
-  }
+}
   export default testePage;

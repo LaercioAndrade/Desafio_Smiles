@@ -19,12 +19,15 @@ And("preencho as informações do voo corretamente", () => {
     Reserva.ClicarBotãoBuscarVoo();
     Reserva.SelecionarMilhasNaPassagemIdaIda();
     Reserva.SelecionarMilhasNaPassagemVolta();
+    Reserva.ValidarMilhasSelecionadoNaTaxa();
 })
 
-
 And("valido os valores da emissão do pedido", () => {
-    Reserva.ValorBilhete();
-    Reserva.ValorPedido();
+    Reserva.ValidarValorBilheteIda();
+    Reserva.ValidarValorBilheteVolta();
+    Reserva.ValidarValorTotalBilhete();
+    Reserva.ValidarTaxaEmbarque();
+    Reserva.ValidarValorTotalDasMilhasDaReserva();
 })
 
 When("aceito os termos do pedido", () => {
