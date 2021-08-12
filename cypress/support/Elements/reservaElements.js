@@ -1,4 +1,4 @@
-class testeElements{
+class reservaElements{
 
 partindoDe = () => {return '#inputOrigin'}   
 destino = () => {return '#inputDestination'}
@@ -23,4 +23,4 @@ btnConfirmarTeladaReserva = () => {return '.button > .btn'}
 textoTelaDeAcesso = () => {return '.main-content > h3'}
 
 }
-export default testeElements;
+export default reservaElements;

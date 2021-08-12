@@ -1,7 +1,7 @@
   /// <reference types ="cypress"/>
 
-  import testeElements from "../Elements/testeElements";
-  const Elements = new testeElements;
+  import reservaElements from "../Elements/reservaElements";
+  const Elements = new reservaElements;
   const NavegadorUrl = Cypress.config("baseUrl")
   
   const valorBilheteIda = 0;
@@ -9,7 +9,7 @@
   const valorTaxaEmbarque = 0;
   const valorTotalDoBilhete = 0;
 
-  class testePage{
+  class reservaPage{
 
     abrirUrl(){
         cy.visit(NavegadorUrl);
@@ -56,7 +56,6 @@
 
     SelecionarMilhasNaPassagemVolta(){
       cy.get(Elements.selecionarMilhasVolta()).click();
-      //cy.scrollTo(0, 1780)
     }
     ValidarValorBilheteIda(){
       cy.get(Elements.valorBilheteIda()).invoke('text').then((valorBilheteIda ) => {
@@ -101,7 +100,7 @@
 
     ClicarCheckBoxAceitarTermos(){
       cy.get(Elements.checkBoxAceitoTermos()).click();
-      //cy.screenshot();
+      cy.screenshot();
     }
 
     ClicarBotãoConfirmarTeladeReservaDoPedido(){
@@ -117,4 +116,4 @@
    
 
 }
-  export default testePage;
+  export default reservaPage;

@@ -1,7 +1,7 @@
 /* global Given, When, Then*/
 
-import testePage from "../PageObjects/testePage";
-const Reserva = new testePage
+import reservaPage from "../PageObjects/reservaPage";
+const Reserva = new reservaPage
 
 
 
@@ -14,7 +14,6 @@ And("preencho as informações do voo corretamente", () => {
     Reserva.Origem();
     Reserva.Destino();
     Reserva.SelecionarData();
-    //Reserva.ClicarBotãoConfirmar();
     Reserva.ClicarBotãoBuscarVoo();
     Reserva.SelecionarMilhasNaPassagemIdaIda();
     Reserva.SelecionarMilhasNaPassagemVolta();
