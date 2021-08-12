@@ -13,9 +13,8 @@ Given("que acesso o site da Smiles", () => {
 And("preencho as informações do voo corretamente", () => {
     Reserva.Origem();
     Reserva.Destino();
-    Reserva.SelecionarDataIda();
-    Reserva.SelecionarDataVolta();
-    Reserva.ClicarBotãoConfirmar();
+    Reserva.SelecionarData();
+    //Reserva.ClicarBotãoConfirmar();
     Reserva.ClicarBotãoBuscarVoo();
     Reserva.SelecionarMilhasNaPassagemIdaIda();
     Reserva.SelecionarMilhasNaPassagemVolta();

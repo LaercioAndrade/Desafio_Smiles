@@ -5,7 +5,7 @@
   const NavegadorUrl = Cypress.config("baseUrl")
   
   const valorBilheteIda = 0;
-  const valorBlheteVolta = 0;
+  const valorBilheteVolta = 0;
   const valorTaxaEmbarque = 0;
   const valorTotalDoBilhete = 0;
 
@@ -25,21 +25,27 @@
       cy.get(Elements.destino()).type("RIO")
       cy.contains('Rio de Janeiro, Brasil, Todos os Aeroportos (RIO)').click();
     }
+    
+    
+    SelecionarData(){
+      const dataAtual = new Date();
+      const mesPartida = dataAtual.getMonth();
+      const dataPartida = dataAtual.getDate() + 10;
+      const mesVolta = dataAtual.getMonth();
+      const dataVolta = dataAtual.getDate();
+      dataAtual.setDate(dataPartida + 30);
 
-    SelecionarDataIda(){
       cy.get(Elements.clicarCalendario()).click();
-      cy.get(Elements.selecionardataIda()).click({force: true});
-    }
 
-    SelecionarDataVolta(){
-      cy.get(Elements.selecionardataVolta()).click({force: true})
+      cy.get(Elements.selecionardataIda()).contains(dataPartida).click({force: true })
+        for (let i = 1; i <= mesVolta - mesPartida; i++) {
+          cy.get(Elements.dataVoltaProximoMes()).click({force:true})
+        }
+      
+      cy.get(Elements.selecionardataVolta()).contains(dataVolta).click({force:true})
+      
     }
-
-    ClicarBotãoConfirmar(){
-      cy.get(Elements.btnConfirmar()).click();
-      //cy.screenshot();
-    }
-
+   
     ClicarBotãoBuscarVoo(){
       cy.get(Elements.btnConfirmarVoo()).click();
     }
@@ -60,15 +66,15 @@
     }
 
     ValidarValorBilheteVolta(){
-      cy.get(Elements.valorBilheteVolta()).invoke('text').then((valorBlheteVolta) => {
-        cy.log(valorBlheteVolta)
-        .should('contain', valorBlheteVolta)
+      cy.get(Elements.valorBilheteVolta()).invoke('text').then((valorBilheteVolta) => {
+        cy.log(valorBilheteVolta)
+        .should('contain', valorBilheteVolta)
       })
     }
 
     ValidarValorTotalBilhete(){
-      const valorTotalDoBilhete = valorBilheteIda + valorBlheteVolta;
-      cy.get(Elements.valorBilheteTotal()).invoke('text').then((valorTotaldoBilhete) => {
+      const valorTotalDoBilhete = valorBilheteIda + valorBilheteVolta;
+      cy.get(Elements.valorBilheteTotal()).invoke('text').then((valorTotalDoBilhete) => {
         cy.log(valorTotalDoBilhete)
         .should('contain', valorTotalDoBilhete)
       })
