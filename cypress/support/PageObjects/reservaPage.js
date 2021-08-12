@@ -4,10 +4,10 @@
   const Elements = new reservaElements;
   const NavegadorUrl = Cypress.config("baseUrl")
   
-  const valorBilheteIda = 0;
-  const valorBilheteVolta = 0;
-  const valorTaxaEmbarque = 0;
-  const valorTotalDoBilhete = 0;
+  let BilheteIda = 0;
+  let BilheteVolta = 0;
+  let TaxaEmbarque = 0;
+  let TotalDoBilhete = 0;
 
   class reservaPage{
 
@@ -58,24 +58,24 @@
       cy.get(Elements.selecionarMilhasVolta()).click();
     }
     ValidarValorBilheteIda(){
-      cy.get(Elements.valorBilheteIda()).invoke('text').then((valorBilheteIda ) => {
-        cy.log(valorBilheteIda )
-        .should('contain', valorBilheteIda)
+      cy.get(Elements.valorBilheteIda()).invoke('text').then((BilheteIda) => {
+        cy.log(BilheteIda )
+        .should('contain', BilheteIda)
       })
     }
 
     ValidarValorBilheteVolta(){
-      cy.get(Elements.valorBilheteVolta()).invoke('text').then((valorBilheteVolta) => {
-        cy.log(valorBilheteVolta)
-        .should('contain', valorBilheteVolta)
+      cy.get(Elements.valorBilheteVolta()).invoke('text').then((BilheteVolta) => {
+        cy.log(BilheteVolta)
+        .should('contain', BilheteVolta)
       })
     }
 
     ValidarValorTotalBilhete(){
-      const valorTotalDoBilhete = valorBilheteIda + valorBilheteVolta;
-      cy.get(Elements.valorBilheteTotal()).invoke('text').then((valorTotalDoBilhete) => {
-        cy.log(valorTotalDoBilhete)
-        .should('contain', valorTotalDoBilhete)
+      const TotalDoBilhete = BilheteIda + BilheteVolta;
+      cy.get(Elements.valorBilheteTotal()).invoke('text').then((TotalDoBilhete) => {
+        cy.log(TotalDoBilhete)
+        .should('contain', TotalDoBilhete)
       })
     }
   
@@ -84,17 +84,17 @@
     }
 
     ValidarTaxaEmbarque(){
-      cy.get(Elements.taxaDeEmbarque()).invoke('text').then((valorTaxaEmbarque) => {
-        cy.log(valorTaxaEmbarque)
-        .should('contain', valorTaxaEmbarque)
+      cy.get(Elements.taxaDeEmbarque()).invoke('text').then((TaxaEmbarque) => {
+        cy.log(TaxaEmbarque)
+        .should('contain', TaxaEmbarque)
       })
     }
 
     ValidarValorTotalDasMilhasDaReserva(){
-      const valorTotalDasMilhasDaReserva = valorTotalDoBilhete + valorTaxaEmbarque;
-      cy.get(Elements.valorTotalDeMilhasDaReserva()).invoke('text').then((valorTotalDasMilhasDaReserva) => {
-        cy.log(valorTotalDasMilhasDaReserva)
-        .should('contain', valorTotalDasMilhasDaReserva)
+      const TotalDasMilhasDaReserva = TotalDoBilhete + TaxaEmbarque;
+      cy.get(Elements.valorTotalDeMilhasDaReserva()).invoke('text').then((TotalDasMilhasDaReserva) => {
+        cy.log(TotalDasMilhasDaReserva)
+        .should('contain', TotalDasMilhasDaReserva)
       })
     }
 
